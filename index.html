@@ -1,279 +1,34 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-  <script src="components/loader.js"></script>
-  <script src="lib/angular/angular.min.js"></script>
-  <script src="lib/onsenui/js/onsenui.min.js"></script>
-  <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
-  <script src="js/app.js"></script>
+<!DOCTYPE html>
+<html lang="en" >
+	<title>Index</title>
+			
+		<head>
+		<link href="styles/bootstrap.min.css" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>		
+	    <script src="scripts/angular-resource.min.js"></script>
 
-  <link rel="stylesheet" href="components/loader.css">
-  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
-  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
-  <link rel="stylesheet" href="css/style.css">
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers.js"></script>
+       <script src="scripts/services.js"></script>
+        <link rel="stylesheet" href="styles/mystyles.css">
+		<style>
+		.label{
+		font-size: 16px;
+		}
+		</style>
+</head>	
 
-  <script>
-   
-  </script>
-</head>
-<body>
-
-  <ons-splitter ng-controller="AppController as app" var="splitter">
-    <ons-splitter-side side="left" width="220px" collapse swipeable>
-      <ons-page>
-        <ons-list>
-          <ons-list-item ng-click="app.load('home.html')" tappable>
-            Home
-          </ons-list-item>
-          <ons-list-item ng-click="app.load('form.html')" tappable>
-          Personal Login 
-          </ons-list-item>
-          <ons-list-item ng-click="app.load('settings.html')" tappable>
-            My Settings
-          </ons-list-item>
-          <ons-list-item ng-click="app.load('aboutdeveloper.html')" tappable>
-            About Developer
-          </ons-list-item>
-        </ons-list>
-      </ons-page>
-    </ons-splitter-side>
-    <ons-splitter-content page="home.html"></ons-splitter-content>
-  </ons-splitter>
-
-    <ons-template id="form.html" ng-controller="AppController as app">
-            <ons-toolbar>
-        <div class="left">
-          <ons-toolbar-button ng-click="app.toggle()">
-            <ons-icon icon="md-menu"></ons-icon>
-          </ons-toolbar-button>
-        </div>
-        <div class="center">
-          <font color"red">Pushpak's Login</font>
-        </div>
-      </ons-toolbar>
-            
-            <div style="text-align: center;margin-top:30px;">
-            <p><ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input></p>
-            <p><ons-input id="password" modifier="underbar" placeholder="Password" float></ons-input></p>
-            <p style="margin-top:30px;"><ons-button ng-click="app.login()">Sign in</ons-button></p>
-            </div>
-            </div>
-    </ons-template>
-
-
-  <ons-template id="home.html">
-          <ons-toolbar>
-             <div class="left">
-              <ons-toolbar-button ng-click="app.toggle()">
-                <ons-icon icon="md-menu"></ons-icon>
-              </ons-toolbar-button>
-            </div>
-        <div class="center">
-         Home
-        </div>
-      </ons-toolbar>
-    <ons-tabbar>
-  <ons-tab label="Business" page="business.html" active>
-  </ons-tab>
-  <ons-tab label="Personal" page="personal.html">
-  </ons-tab>
-</ons-tabbar>
-
-<ons-template id="business.html">
-  <ons-page>
-    <ons-toolbar>
-      <div class="center">Business</div>
-    </ons-toolbar>
-
-    <p style="text-align: center;">
-      <img src="images/mylogo.png" alt="PushpakLive's logo" />
-    </p>
-  </ons-page>
-</ons-template>
-
-<ons-template id="personal.html">
-  <ons-page>
-    <ons-toolbar>
-      <div class="center">Personal</div>
-    </ons-toolbar>
-
-    <p style="text-align: center;">
-      My Personal area for further application development and testing.
-    </p>
-  </ons-page>
-</ons-template>
-  </ons-template>
-
-  <ons-template id="settings.html">
-    <ons-page>
-      <ons-toolbar>
-        <div class="left">
-          <ons-toolbar-button ng-click="app.toggle()">
-            <ons-icon icon="md-menu"></ons-icon>
-          </ons-toolbar-button>
-        </div>
-        <div class="center">
-          My Settings
-        </div>
-      </ons-toolbar>
-      
-       <ons-list>
-    <ons-list-header>Transaction Settings</ons-list-header>
-    <ons-list-item>
-      <div class="center">
-        <!--Switch is {{ data.switch ? 'on' : 'off' }}-->
-        Client
-      </div>
-      <div class="right">
-        <ons-switch ng-model="data.switch"></ons-switch>
-      </div>
-    </ons-list-item>
-    <ons-list-item>
-      <div class="center">
-        <!--Switch is {{ data.switch ? 'disabled' :'enabled' }}-->
-        Non-Client
-      </div>
-      <div class="right">
-        <ons-switch ng-disabled="data.switch"></ons-switch>
-      </div>
-    </ons-list-item>
-
-    <ons-list-header>Review Us</ons-list-header>
-    <ons-list-item>
-      <ons-range ng-model="data.range"   style="width: 100%; padding-right: 10px"></ons-range>
-    </ons-list-item>
-    <ons-list-item>
-      {{ data.range }} of 100
-    </ons-list-item>
-
-    <ons-list-header>Your Name:</ons-list-header>
-    <ons-list-item>
-      <ons-if platform="ios" class="left">
-        Name
-      </ons-if>
-      <div class="center">
-        <ons-input placeholder="Input name" float ng-model="data.name"></ons-input>
-      </div>
-    </ons-list-item>
-    <ons-list-item>
-      Hello there, {{ data.name }}!
-    </ons-list-item>
-
-  </ons-list>
-    </ons-page>
-  </ons-template>
-
-  
-  
-  <ons-template id="aboutdeveloper.html">
-    <ons-page>
-  <ons-toolbar>
-        <div class="left">
-          <ons-toolbar-button ng-click="app.toggle()">
-            <ons-icon icon="md-menu"></ons-icon>
-          </ons-toolbar-button>
-        </div>
-        <div class="center">
-          About Developer
-        </div>
-      </ons-toolbar>
-
-  <ons-list>
-   
-    <ons-list-header>Developer Details</ons-list-header>
-    <ons-list-item>
-      <div class="left" style="align:center">
-        <img class="list-item__thumbnail" src="images/mylogo.png">
-      </div>
-      <div class="center">
-        <span class="list-item__title">Pushpak Choudhary</span>
-      </div>
-    </ons-list-item>
-
-     <ons-list-header>Specializations</ons-list-header>
-    <ons-list-item>AngularJS</ons-list-item>
-    <ons-list-item>Java Server Faces</ons-list-item>
-    <ons-list-item>Bootstrap</ons-list-item>
-    <ons-list-item>Servlet</ons-list-item>
-    <ons-list-item>Sngle Page Applications</ons-list-item>
-    <ons-list-item>PostgreSQL</ons-list-item>
-    <ons-list-item>Oracle,MySQL(DBMS Management)</ons-list-item>
-    <ons-list-item>Dojo</ons-list-item>
-    <ons-list-item>Java</ons-list-item>
-    <ons-list-item>JavaScript</ons-list-item>
-    <ons-list-item>XML,JSON</ons-list-item>
-    <ons-list-item>Website Designing</ons-list-item>
-    <ons-list-item>Web Application Development</ons-list-item>
-    <ons-list-item>Onsen UI</ons-list-item>
-    <ons-list-item>Hybrid Mobile Application Development</ons-list-item>
-    <ons-list-item>RESTful Web Service</ons-list-item>
-    <ons-list-item>Angular Testing</ons-list-item>
-    <ons-list-item>JSP</ons-list-item>
-    <ons-list-item>Client Server Communication</ons-list-item>
-    
-    <ons-list-header>Personal Interests</ons-list-header>
-    <ons-list-item>
-      <div class="left">
-        <ons-icon size="30px" spin icon="md-spinner"></ons-icon>
-      </div>
-      <div class="center">
-        Music, Coffee, Coding
-      </div>
-    </ons-list-item>
-
-    <ons-list-header>Tappable / Ripple</ons-list-header>
-    <ons-list-item tappable>Tap me</ons-list-item>
-
-    <ons-list-header>Chevron</ons-list-header>
-    <ons-list-item modifier="chevron" tappable>Chevron</ons-list-item>
-
-    
-    <ons-list-header>Switch</ons-list-header>
-    <ons-list-item>
-      <div class="center">
-        Turn it on
-      </div>
-      <div class="right">
-        <ons-switch></ons-switch>
-      </div>
-    </ons-list-item>
-
-    <ons-list-header>Switch and icon</ons-list-header>
-    <ons-list-item>
-      <div class="left">
-        <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
-      </div>
-      <div class="center">
-        Icon and switch
-      </div>
-      <div class="right">
-        <ons-switch></ons-switch>
-      </div>
-    </ons-list-item>
-
-    <ons-list-header>No divider</ons-list-header>
-    <ons-list-item modifier="nodivider">Item A</ons-list-item>
-    <ons-list-item modifier="nodivider">Item B</ons-list-item>
-
-    <ons-list-header>Long divider</ons-list-header>
-    <ons-list-item modifier="longdivider">Item A</ons-list-item>
-    <ons-list-item modifier="longdivider">Item B</ons-list-item>
-  </ons-list>
-
-  <br />
-
-  <ons-list modifier="inset">
-    <ons-list-header>Inset list</ons-list-header>
-    <ons-list-item modifier="longdivider">Item A</ons-list-item>
-    <ons-list-item modifier="longdivider">Item B</ons-list-item>
-  </ons-list>
-
-  <br />
-</ons-page>
-  </ons-template>
-  
+<body ng-app="myApp">	
+    <div ui-view="header"></div>
+    <div ui-view="content"></div>
+    <div ui-view="footer"></div>
 </body>
+
 </html>
