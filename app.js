@@ -1,39 +1,81 @@
-// This is a JavaScript file
+'use strict';
+angular.module('myApp', ['ui.router','ngResource']) //if front page is not loading check for app name
 
- ons.bootstrap()
-      .controller('AppController', function($scope) {
-        this.load = function(page) {
-          $scope.splitter.content.load(page);
-          $scope.splitter.left.close();
-        };
-        this.login = function(){
-             $scope.username = document.getElementById('username').value;
-             $scope.password = document.getElementById('password').value;
-             $scope.message = 'Aap aaiyash ho! Welcome to AaiyashHQ';
+.config(function($stateProvider, $urlRouterProvider) {
+        $stateProvider
+                    // route for the home page
+            .state('app', {
+                url:'/',
+                views: {
+                    'header': {
+                        templateUrl : 'views/header.html'
+                    },
+                    'content@': {
+                        templateUrl : 'views/home.html',
+                        controller  : 'IndexController'
+                    },
+                    'footer': {
+                        templateUrl : 'views/footer.html'
+                    }
+                }
+            })
+           
+              // route for the contactus page
+            .state('app.contactus', {
+                url:'contactus',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/fullStackContactUs.html',
+                        controller  : 'ContactController'
+                     }
+                }
+            })
+             // route for the aboutus page
+            .state('app.aboutus', {
+                url:'aboutus',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/aboutus.html',
+                        controller  : 'AboutController'                  
+                    }
+                }
+            })
+            // route for the menu page
+            .state('app.menu', {
+                url: 'menu',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/menu.html',
+                        controller  : 'MenuController'
+                    }
+                }
+            })
 
-          if ($scope.username === 'pushpak' && $scope.password === 'secret') {
-            ons.notification.alert('You have met '+$scope.username+'😎 before!');
-          }
-         else if($scope.username === 'bhavik' && $scope.password === 'secret'){
-             ons.notification.alert('You have met '+$scope.username+'🤡 before');
-         }
-         else if($scope.username === 'aaiyash' && $scope.password === 'aaiyashi'){
-             ons.notification.alert($scope.message);
-         }
-         else if($scope.username != null && $scope.password != null){
-             ons.notification.alert('Hello noobie ' +$scope.username+'. Please register.');
-         }
-          else {
-            ons.notification.alert('We havnt met yet !!🤖');
-          }
-        };
-        
-        this.toggle = function() {
-          $scope.splitter.left.toggle();
-        };
-      });
-      
+            // route for the dishdetail page
+            .state('app.dishdetails', {
+                url: 'menu/:id',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/dishdetail.html',
+                        controller  : 'DishCommentController'
+                   }
+                }
+            })
 
-    ons.ready(function() {
-        console.log("Onsen UI is ready!");
-    });
+            .state('app.promotion', {
+                url: 'menu/:idp',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/footer.html',
+                        controller  : 'IndexController'
+                   }
+                }
+            })
+
+        ;
+            $urlRouterProvider.otherwise('/');
+    })
+
+
+
+;//closing app

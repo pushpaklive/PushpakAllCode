@@ -1,0 +1,50 @@
+    <div class="container" ng-controller="IndexController">
+	<div class="col-xs-12" ng-if="!showMenu">
+	<h4 style="color:red">{{message}}</h4>
+	</div>
+          
+        <div class="row row-content" ng-if="showMenu">
+            <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                <p style="padding:20px;"></p>
+                <h3 align=center>Our Lipsmacking Culinary Creations</h3>
+            </div>
+
+            <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+				<div class = "media media-list">
+				<a ui-sref="app.dishdetails({id:dish.id})">
+					<span><img ng-src="{{dish.image}}" class="img-thumbnail media-object"/></span>
+				</a>
+			    <div>
+                <h3>{{dish.name}}<span class="label label-danger label-lg">{{dish.label}}</span>
+				         <span class="badge badge-success">$41.89</span>
+			    </h3>
+				<h5>{{dish.description}}</h5>
+
+               </div>
+			   </div>
+            </div>
+        </div>
+
+
+        <div class="row row-content" ng-if="showMenu">
+            <div class="col-xs-12 col-sm-3">
+                <p style="padding:20px;"></p>
+                <h3 align=center>This Month's Promotions</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+				<div class = "media media-list" ng-repeat = "prom in promotions">
+				<a ui-sref="app.promotion({id:prom.id})">
+					<span><img ng-src="{{prom.image}}" class="img-thumbnail media-object"/></span>
+				</a>
+			    <div>
+                <h3>{{prom.name}}<span class="label label-danger label-lg">{{prom.label}}</span>
+				         <span class="badge badge-success">$2.39</span>
+			    </h3>
+				<h5>{{prom.description}}</h5>
+               </div>
+			   </div>
+            </div>
+        </div>
+
+      </div>  
+    

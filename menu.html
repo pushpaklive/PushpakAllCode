@@ -1,0 +1,64 @@
+			<div class="row row-content" ng-controller="MenuController">
+			
+			<div class="container col-xs-12">
+			{{message}}
+			</div>
+            
+            <div class="col-xs-12">
+			<div class="container">
+			<div  border="1">
+			<div class="col-xs-12">
+						
+					
+			<div style="float:right;">
+			<h4 style="color:Grey;">Sort by: <input type="text" ng-model="type"></h4>
+			</div>
+			
+			<div class = "media media-body">
+			<div class="container">	
+             
+			<ul class="media-list">
+			<li class= "media" ng-repeat="dish in dishes | orderBy:type">
+			
+			<div class="container">
+		
+			<div class = "media media-list">
+			<a ui-sref="app.dishdetails({id:dish.id})">
+				<span><img ng-src="{{dish.image}}" class="img-thumbnail media-object"/></span>
+			</a>		
+			    <div>
+
+				<h3>{{dish.name}}<span class="label label-danger label-lg">{{dish.label}}</span>
+				         <span class="badge badge-success">$4.99</span>
+			   </h3>
+				
+				<h5>{{dish.description}}</h5>
+
+                <div ng-repeat = "x in dish.comments">
+                  <h3>Rating: {{x.rating}}</h3> 
+                  <h4>Comment: {{x.comment}}</h4>
+               <footer>{{x.author}} , {{x.date}}</footer>
+               	</div>
+              <marquee>Loaded ..............</marquee>		
+               </div>
+			
+            
+
+		
+			</div>
+				</div>
+			</li>
+
+			</ul>
+
+           
+		<!-- div class container below media media-body-->
+			</div><!--media media-body-->
+			
+			 </div><!--col-xs-12--->
+			 </div><!--Controller div-->
+
+			 </div><!-- Container div--->
+			 </div><!--Row content div-->
+            </div>
+ </div>
